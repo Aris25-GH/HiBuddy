@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB48_rM2JlkIUqXjbwVmzJoic6_r_nyw68",
+            authDomain: "hi-buddy-e4429.firebaseapp.com",
+            databaseURL: "https://hi-buddy-e4429-default-rtdb.firebaseio.com",
+            projectId: "hi-buddy-e4429",
+            storageBucket: "hi-buddy-e4429.firebasestorage.app",
+            messagingSenderId: "673107640726",
+            appId: "1:673107640726:web:0487999630f213784eddb7",
+            measurementId: "G-H41JZ5HWCH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Make Firebase objects globally available (for simplicity)
+        window.auth = auth;
+        window.database = database;
+    </script>
+</head>
+<body>
+    <div id="auth">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginButton">Login</button>
+        <button id="signupButton">Sign Up</button>
+    </div>
+    <div id="chat" style="display: none;">
+        <h1>Chat App</h1>
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button id="sendButton">Send</button>
+        <div id="videoChat">
+            <video id="localVideo" autoplay muted></video>
+            <video id="remoteVideo" autoplay></video>
+        </div>
+    </div>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
